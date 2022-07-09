@@ -2,6 +2,8 @@ import React from 'react';
 import icon from '../images/logo_vk.svg'
 import JsonDropdown from '../dialogs/JsonDropdown';
 import arrow_filter from '../images/drop_arrow.svg'
+import arrow_filter_white from '../images/drop_arrow_white.svg'
+
 import logo_vk_v2 from '../images/logo_vk_v2.svg'
 var arrowRotate = {
     transform: 'rotate(180deg)',
@@ -30,7 +32,7 @@ class Navbar extends React.Component {
                         <div onClick={this.toogleJsons} className="button_choose_app choose_type new_border new_border_hover">
                             <div className="just_content">
                                 <p className={this.props.theme.button_choose_text}>{filtJsons[0].text}</p>
-                                <img style={this.state.isShowTypes ? arrowRotate : {}} className="choose_drop_arrow" src={arrow_filter}/>
+                                <img style={this.state.isShowTypes ? arrowRotate : {}} className="choose_drop_arrow" src={this.props.theme.currentTheme == "mono" || this.props.theme.currentTheme == "dark" ? arrow_filter_white : arrow_filter}/>
                             </div>
                         </div>
                         {this.state.isShowJsons && <JsonDropdown theme={this.props.theme} onCloseFilters={this.toogleJsons} jsons={this.props.jsons} changeJson={this.props.changeJson}/>}

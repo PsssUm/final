@@ -432,3 +432,34 @@
 .apps_drop_text_dark{
   color: #e1e3e6;
 }
+.ml_16{
+  margin-left: 16px;
+}
+@media (max-width: 768px) {
+  .app{
+    width: fit-content;
+  }
+  .header{
+    display: block;
+  }
+  .select_all_cont{
+    display: block;
+    position: absolute;
+    left: 16px;
+    top: 60px;
+  }
+  .ml_16{
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  .inbox_title {
+    color: #2C2D2E;
+    margin-top: 64px;
+    margin-left: 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .just_cont{
+    display: block;
+  }
+}

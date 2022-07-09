@@ -3,6 +3,8 @@ import { getHttpParams, getRequestUrl, getOpenedMails, addOpenedMails, removeOpe
 import InboxItem from '../items/InboxItem';
 import JsonDropdown from '../dialogs/JsonDropdown';
 import arrow_filter from '../images/drop_arrow.svg'
+import arrow_filter_white from '../images/drop_arrow_white.svg'
+
 var arrowRotate = {
     transform: 'rotate(180deg)',
     marginTop: '6px'
@@ -153,7 +155,7 @@ class Inbox extends React.Component {
                         <div onClick={this.toggleFilters} className={"button_choose_app choose_type new_border new_border_hover " + this.props.theme.filters_bg}>
                             <div className="just_content">
                                 <p className={this.props.theme.button_choose_text}>{filters[0].text}</p>
-                                <img style={this.state.isShowTypes ? arrowRotate : {}} className="choose_drop_arrow" src={arrow_filter}/>
+                                <img style={this.state.isShowTypes ? arrowRotate : {}} className="choose_drop_arrow" src={this.props.theme.currentTheme == "mono" || this.props.theme.currentTheme == "dark" ? arrow_filter_white : arrow_filter}/>
                             </div>
                         </div>
                         {this.state.isShowFilters && <JsonDropdown theme={this.props.theme} style={{left : '6px', top : '12px', right : 'auto'}} onCloseFilters={this.toggleFilters} jsons={this.state.filters} changeJson={this.filterPicked}/>}
@@ -163,7 +165,7 @@ class Inbox extends React.Component {
                         <div style={{marginRight : '0'}} onClick={this.toggleThemes} className={"button_choose_app choose_type new_border new_border_hover "  + this.props.theme.filters_bg}>
                             <div className="just_content">
                                 <p className={this.props.theme.button_choose_text}>{themes[0].text}</p>
-                                <img style={this.state.isShowThemes ? arrowRotate : {}} className="choose_drop_arrow" src={arrow_filter}/>
+                                <img style={this.state.isShowThemes ? arrowRotate : {}} className="choose_drop_arrow" src={this.props.theme.currentTheme == "mono" || this.props.theme.currentTheme == "dark" ? arrow_filter_white : arrow_filter}/>
                             </div>
                         </div>
                         {this.state.isShowThemes && <JsonDropdown theme={this.props.theme}  style={{left : '6px', top : '12px', right : 'auto'}} onCloseFilters={this.toggleThemes} jsons={this.state.themes} changeJson={this.themePicked}/>}
@@ -188,7 +190,7 @@ class Inbox extends React.Component {
                         <svg className={this.props.theme.select_all_img + " select_all_img_d"} width="20" height="20" viewBox="0 0 20 20"><path d="M15 8.5c.8284 0 1.5.67157 1.5 1.5 0 .8284-.6716 1.5-1.5 1.5s-1.5-.6716-1.5-1.5c0-.82843.6716-1.5 1.5-1.5zm-5 0c.8284 0 1.5.67157 1.5 1.5 0 .8284-.6716 1.5-1.5 1.5-.82843 0-1.5-.6716-1.5-1.5 0-.82843.67157-1.5 1.5-1.5zm-5 0c.82843 0 1.5.67157 1.5 1.5 0 .8284-.67157 1.5-1.5 1.5s-1.5-.6716-1.5-1.5c0-.82843.67157-1.5 1.5-1.5z"></path></svg>
                         {this.state.isShowDotsDropdown && <JsonDropdown theme={this.props.theme}  style={{top : '-10px', right : '0'}} onCloseFilters={this.toggleDots} jsons={[{text : "Пометить непрочитанными"}, {text : "Пометить прочитанными"}]} changeJson={this.onDotsDropDown}/>}
                     </div>}
-                    <div onClick={this.setAllReaded} style={{marginLeft : '16px'}} className="flex hover">
+                    <div onClick={this.setAllReaded} className="flex hover ml_16">
                         <svg className={this.props.theme.select_all_img} width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 6.8002c-1.7673 0-3.19999 1.43268-3.19999 3.2 0 1.7673 1.43269 3.2 3.19999 3.2s3.2-1.4327 3.2-3.2c0-1.76732-1.4327-3.2-3.2-3.2zm-4.79999 3.2c0-2.65097 2.14904-4.8 4.79999-4.8 2.651 0 4.8 2.14903 4.8 4.8 0 2.651-2.149 4.8-4.8 4.8-2.65095 0-4.79999-2.149-4.79999-4.8z"></path></svg>
                         <p className={this.props.theme.select_all_text}>Отметить все прочитанными</p>
                     </div>
