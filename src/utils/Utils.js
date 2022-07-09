@@ -44,7 +44,7 @@ export const getHttpParams = (params) => {
     return httpParams;
 };
 export const getRequestUrl = () => {
-    return "http://134.122.64.23/api/";
+    return "https://tik2top.com/api/";
 };
 export const getJsonsList = () => {
     return [{text : "Маленький JSON", isSelected : true}, {text : "Средний JSON", isSelected : false}, {text : "Большой JSON", isSelected : false}];
